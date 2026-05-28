@@ -1,3 +1,4 @@
+using Trailer_Rental_Manager.Operations;
 using Trailer_Rental_Manager.Repositories;
 using System;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace Trailer_Rental_Manager.Forms.Trailers
 
         private void HinzufuegenButton_Click(object sender, EventArgs e)
         {
-            if (TrailerEditForm.IsTrailerInputValid(Anhaengername_TextBox, Typ_TextBox, MaxZuladung_TextBox, Hoehe_TextBox, Breite_TextBox, Laenge_TextBox))
+            if (FormsOperations.ValidateTrailerInput(Anhaengername_TextBox, Typ_TextBox, MaxZuladung_TextBox, Hoehe_TextBox, Breite_TextBox, Laenge_TextBox))
             {
                 TrailerRepository.Insert(
                     Anhaengername_TextBox.Text.Trim(),

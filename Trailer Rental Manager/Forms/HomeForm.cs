@@ -7,7 +7,6 @@ using Trailer_Rental_Manager.Operations;
 using Trailer_Rental_Manager.Repositories;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Trailer_Rental_Manager
@@ -61,52 +60,27 @@ namespace Trailer_Rental_Manager
 
         private void Home_KundenButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form customers = new CustomerForm();
-            customers.StartPosition = FormStartPosition.Manual;
-            customers.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            customers.Closed += (s, args) => this.Close();
-            customers.Show();
+            FormsOperations.NavigateTo(this, new CustomerForm());
         }
 
         private void Home_AnhaengerButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form trailers = new TrailerForm();
-            trailers.StartPosition = FormStartPosition.Manual;
-            trailers.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            trailers.Closed += (s, args) => this.Close();
-            trailers.Show();
+            FormsOperations.NavigateTo(this, new TrailerForm());
         }
 
         private void Home_RentalOrdersButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form rentalOrders = new RentalOrderForm();
-            rentalOrders.StartPosition = FormStartPosition.Manual;
-            rentalOrders.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            rentalOrders.Closed += (s, args) => this.Close();
-            rentalOrders.Show();
+            FormsOperations.NavigateTo(this, new RentalOrderForm());
         }
 
         private void Home_GarageButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form garage = new GarageForm();
-            garage.StartPosition = FormStartPosition.Manual;
-            garage.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            garage.Closed += (s, args) => this.Close();
-            garage.Show();
+            FormsOperations.NavigateTo(this, new GarageForm());
         }
 
         private void Home_StatistikButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form statistics = new StatisticsForm();
-            statistics.StartPosition = FormStartPosition.Manual;
-            statistics.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            statistics.Closed += (s, args) => this.Close();
-            statistics.Show();
+            FormsOperations.NavigateTo(this, new StatisticsForm());
         }
 
         private void BeginnDatum_ValueChanged(object sender, EventArgs e)

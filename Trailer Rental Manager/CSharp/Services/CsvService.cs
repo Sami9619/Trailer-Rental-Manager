@@ -4,7 +4,6 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Trailer_Rental_Manager.Services
 {
@@ -49,34 +48,6 @@ namespace Trailer_Rental_Manager.Services
     {
         private const char Separator = ';';
         private const char Quote = '"';
-
-        internal static string ShowSaveDialog()
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "CSV Dateien (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
-                saveFileDialog.FilterIndex = 1;
-                saveFileDialog.RestoreDirectory = true;
-
-                return saveFileDialog.ShowDialog() == DialogResult.OK
-                    ? saveFileDialog.FileName
-                    : null;
-            }
-        }
-
-        internal static string ShowOpenDialog()
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "CSV Dateien (*.csv)|*.csv|Alle Dateien (*.*)|*.*";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
-
-                return openFileDialog.ShowDialog() == DialogResult.OK
-                    ? openFileDialog.FileName
-                    : null;
-            }
-        }
 
         /// <summary>
         /// Writes a semicolon-separated UTF-8 CSV file and escapes values that contain separators, quotes, or line breaks.

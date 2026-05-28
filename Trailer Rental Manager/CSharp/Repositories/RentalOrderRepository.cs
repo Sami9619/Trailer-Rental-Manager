@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using Trailer_Rental_Manager.Operations;
-using Trailer_Rental_Manager.Services;
 
 namespace Trailer_Rental_Manager.Repositories
 {
@@ -285,7 +284,7 @@ namespace Trailer_Rental_Manager.Repositories
                 throw new FormatException("EndDate must use yyyy-MM-dd.");
             }
 
-            if (!RentalOrderValidator.IsDateRangeValid(parsedStartDate, parsedEndDate))
+            if (parsedEndDate.Date < parsedStartDate.Date)
             {
                 throw new FormatException("EndDate must be greater than or equal to StartDate.");
             }

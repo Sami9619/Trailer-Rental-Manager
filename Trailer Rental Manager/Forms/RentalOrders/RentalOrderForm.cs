@@ -7,7 +7,6 @@ using Trailer_Rental_Manager.Repositories;
 using Trailer_Rental_Manager.Services;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Trailer_Rental_Manager.Forms.RentalOrders
@@ -17,56 +16,6 @@ namespace Trailer_Rental_Manager.Forms.RentalOrders
         public RentalOrderForm()
         {
             InitializeComponent();
-        }
-
-        private void HomeButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form home = new HomeForm();
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            home.Closed += (s, args) => this.Close();
-            home.Show();
-        }
-
-        private void KundenButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form customers = new CustomerForm();
-            customers.StartPosition = FormStartPosition.Manual;
-            customers.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            customers.Closed += (s, args) => this.Close();
-            customers.Show();
-        }
-
-        private void AnhaengerButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form trailers = new TrailerForm();
-            trailers.StartPosition = FormStartPosition.Manual;
-            trailers.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            trailers.Closed += (s, args) => this.Close();
-            trailers.Show();
-        }
-
-        private void GarageButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form garage = new GarageForm();
-            garage.StartPosition = FormStartPosition.Manual;
-            garage.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            garage.Closed += (s, args) => this.Close();
-            garage.Show();
-        }
-
-        private void StatistikButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form statistics = new StatisticsForm();
-            statistics.StartPosition = FormStartPosition.Manual;
-            statistics.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            statistics.Closed += (s, args) => this.Close();
-            statistics.Show();
         }
 
         private void RentalOrderForm_Load(object sender, EventArgs e)
@@ -110,9 +59,34 @@ namespace Trailer_Rental_Manager.Forms.RentalOrders
             }
         }
 
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new HomeForm());
+        }
+
+        private void KundenButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new CustomerForm());
+        }
+
+        private void AnhaengerButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new TrailerForm());
+        }
+
+        private void GarageButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new GarageForm());
+        }
+
+        private void StatistikButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new StatisticsForm());
+        }
+
         private void RentalOrdersDataImportButton_Click(object sender, EventArgs e)
         {
-            string filePath = CsvService.ShowOpenDialog();
+            string filePath = FormsOperations.ShowOpenCsvDialog();
             if (string.IsNullOrWhiteSpace(filePath))
             {
                 return;
@@ -133,7 +107,7 @@ namespace Trailer_Rental_Manager.Forms.RentalOrders
         private void RentalOrdersDataExportButton_Click(object sender, EventArgs e)
         {
             DataTable dataTable = RentalOrderRepository.GetExport();
-            string filePath = CsvService.ShowSaveDialog();
+            string filePath = FormsOperations.ShowSaveCsvDialog();
             CsvService.ExportToCsv(dataTable, filePath);
         }
     }

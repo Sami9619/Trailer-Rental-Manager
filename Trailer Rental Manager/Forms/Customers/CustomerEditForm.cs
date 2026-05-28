@@ -1,6 +1,5 @@
 using Trailer_Rental_Manager.Operations;
 using Trailer_Rental_Manager.Repositories;
-using Trailer_Rental_Manager.Services;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -10,14 +9,12 @@ namespace Trailer_Rental_Manager.Forms.Customers
     public partial class CustomerEditForm : Form
     {
         private readonly int customerId;
-        private readonly CustomerForm customersForm;
         private bool noDateSelected;
 
-        public CustomerEditForm(int customerId, CustomerForm customerForm)
+        public CustomerEditForm(int customerId)
         {
             InitializeComponent();
             this.customerId = customerId;
-            customersForm = customerForm;
             noDateSelected = false;
         }
 
@@ -54,7 +51,7 @@ namespace Trailer_Rental_Manager.Forms.Customers
 
         private void KundenBearbeitungsUebersicht_SaveButton_Click(object sender, EventArgs e)
         {
-            if (IsCustomerInputValid(CustomerEditForm_Geschlecht, CustomerEditForm_Vorname, CustomerEditForm_Nachname))
+            if (FormsOperations.ValidateCustomerInput(CustomerEditForm_Geschlecht, CustomerEditForm_Vorname, CustomerEditForm_Nachname))
             {
                 string drivingLicenseIssueDate = null;
 
@@ -79,35 +76,6 @@ namespace Trailer_Rental_Manager.Forms.Customers
 
                 this.Close();
             }
-        }
-
-        internal static bool IsCustomerInputValid(TextBox kundenAenderungsUebersicht_Geschlecht, TextBox kundenAenderungsUebersicht_Vorname, TextBox kundenAenderungsUebersicht_Nachname)
-        {
-            if (kundenAenderungsUebersicht_Geschlecht.Text.Length == 0)
-            {
-                MessageBox.Show("Geschlecht darf nicht leer sein!");
-                return false;
-            }
-
-            if (!CustomerValidator.IsValidGender(kundenAenderungsUebersicht_Geschlecht.Text))
-            {
-                MessageBox.Show("Geschlecht darf nur 'w' (Weiblich), 'm' (männlich) oder 'd' (diverse) sein!");
-                return false;
-            }
-
-            if (kundenAenderungsUebersicht_Vorname.Text.Length == 0)
-            {
-                MessageBox.Show("Vorname darf nicht leer sein!");
-                return false;
-            }
-
-            if (kundenAenderungsUebersicht_Nachname.Text.Length == 0)
-            {
-                MessageBox.Show("Nachname darf nicht leer sein!");
-                return false;
-            }
-
-            return true;
         }
 
         private void KundenBearbeitungsUebersicht_DeleteButton_Click(object sender, EventArgs e)

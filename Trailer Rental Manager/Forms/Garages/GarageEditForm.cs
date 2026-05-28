@@ -1,3 +1,4 @@
+using Trailer_Rental_Manager.Operations;
 using Trailer_Rental_Manager.Repositories;
 using System;
 using System.Data;
@@ -8,13 +9,11 @@ namespace Trailer_Rental_Manager.Forms.Garages
     public partial class GarageEditForm : Form
     {
         private readonly int garageId;
-        private readonly GarageForm garagesForm;
 
-        public GarageEditForm(int garageId, GarageForm garageForm)
+        public GarageEditForm(int garageId)
         {
             InitializeComponent();
             this.garageId = garageId;
-            garagesForm = garageForm;
         }
 
         private void GarageEditForm_Load(object sender, EventArgs e)
@@ -40,7 +39,7 @@ namespace Trailer_Rental_Manager.Forms.Garages
 
         private void KundenBearbeitungsUebersicht_SaveButton_Click(object sender, EventArgs e)
         {
-            if (IsGarageInputValid(Strasse_TextBox, Hausnummer_TextBox, PLZ_TextBox, Ort_TextBox, Miete_TextBox))
+            if (FormsOperations.ValidateGarageInput(Strasse_TextBox, Hausnummer_TextBox, PLZ_TextBox, Ort_TextBox, Miete_TextBox))
             {
                 GarageRepository.Update(
                     garageId,
@@ -53,47 +52,6 @@ namespace Trailer_Rental_Manager.Forms.Garages
 
                 this.Close();
             }
-        }
-
-        internal static bool IsGarageInputValid(TextBox strasse_TextBox, TextBox hausnummer_TextBox, TextBox pLZ_TextBox, TextBox ort_TextBox, TextBox miete_TextBox)
-        {
-            if (strasse_TextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Straße darf nicht leer sein!");
-                return false;
-            }
-
-            if (hausnummer_TextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Hausnummer darf nicht leer sein!");
-                return false;
-            }
-
-            if (pLZ_TextBox.Text.Length == 0)
-            {
-                MessageBox.Show("PLZ darf nicht leer sein!");
-                return false;
-            }
-
-            if (ort_TextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Ort darf nicht leer sein!");
-                return false;
-            }
-
-            if (miete_TextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Miete darf nicht leer sein!");
-                return false;
-            }
-
-            if (miete_TextBox.Text.Trim().Length > 0 && !double.TryParse(miete_TextBox.Text.Trim(), out double rent))
-            {
-                MessageBox.Show("Miete darf nur eine Zahl sein!");
-                return false;
-            }
-
-            return true;
         }
     }
 }

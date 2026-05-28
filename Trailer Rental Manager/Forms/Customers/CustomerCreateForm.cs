@@ -17,7 +17,7 @@ namespace Trailer_Rental_Manager.Forms.Customers
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (CustomerEditForm.IsCustomerInputValid(Geschlecht_TextBox, Vorname_TextBox, Nachname_TextBox))
+            if (FormsOperations.ValidateCustomerInput(Geschlecht_TextBox, Vorname_TextBox, Nachname_TextBox))
             {
                 string drivingLicenseIssueDate = dateValueChanged
                     ? DBOperations.ToDatabaseDate(FuererscheinDatum_DateTimePicker.Value)

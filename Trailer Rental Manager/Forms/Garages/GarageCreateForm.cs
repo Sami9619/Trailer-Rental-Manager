@@ -1,3 +1,4 @@
+using Trailer_Rental_Manager.Operations;
 using Trailer_Rental_Manager.Repositories;
 using System;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace Trailer_Rental_Manager.Forms.Garages
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (GarageEditForm.IsGarageInputValid(Strasse_TextBox, Hausnummer_TextBox, PLZ_TextBox, Ort_TextBox, Miete_TextBox))
+            if (FormsOperations.ValidateGarageInput(Strasse_TextBox, Hausnummer_TextBox, PLZ_TextBox, Ort_TextBox, Miete_TextBox))
             {
                 GarageRepository.Insert(
                     Strasse_TextBox.Text.Trim(),

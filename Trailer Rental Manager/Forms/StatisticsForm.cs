@@ -1,14 +1,13 @@
-using Trailer_Rental_Manager.Repositories;
 using Trailer_Rental_Manager.Forms.Customers;
 using Trailer_Rental_Manager.Forms.Garages;
 using Trailer_Rental_Manager.Forms.RentalOrders;
 using Trailer_Rental_Manager.Forms.Trailers;
+using Trailer_Rental_Manager.Operations;
+using Trailer_Rental_Manager.Repositories;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Trailer_Rental_Manager.Operations;
 
 namespace Trailer_Rental_Manager.Forms
 {
@@ -17,56 +16,6 @@ namespace Trailer_Rental_Manager.Forms
         public StatisticsForm()
         {
             InitializeComponent();
-        }
-
-        private void HomeButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form home = new HomeForm();
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            home.Closed += (s, args) => this.Close();
-            home.Show();
-        }
-
-        private void KundenButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form customers = new CustomerForm();
-            customers.StartPosition = FormStartPosition.Manual;
-            customers.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            customers.Closed += (s, args) => this.Close();
-            customers.Show();
-        }
-
-        private void AnhaengerButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form trailers = new TrailerForm();
-            trailers.StartPosition = FormStartPosition.Manual;
-            trailers.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            trailers.Closed += (s, args) => this.Close();
-            trailers.Show();
-        }
-
-        private void RentalOrdersButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form rentalOrders = new RentalOrderForm();
-            rentalOrders.StartPosition = FormStartPosition.Manual;
-            rentalOrders.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            rentalOrders.Closed += (s, args) => this.Close();
-            rentalOrders.Show();
-        }
-
-        private void GarageButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form garage = new GarageForm();
-            garage.StartPosition = FormStartPosition.Manual;
-            garage.Location = new Point(this.DesktopLocation.X, this.DesktopLocation.Y);
-            garage.Closed += (s, args) => this.Close();
-            garage.Show();
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
@@ -130,6 +79,31 @@ namespace Trailer_Rental_Manager.Forms
 
                 textBoxGesamteMiete.Text = totalRent.ToString();
             }
+        }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new HomeForm());
+        }
+
+        private void KundenButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new CustomerForm());
+        }
+
+        private void AnhaengerButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new TrailerForm());
+        }
+
+        private void RentalOrdersButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new RentalOrderForm());
+        }
+
+        private void GarageButton_Click(object sender, EventArgs e)
+        {
+            FormsOperations.NavigateTo(this, new GarageForm());
         }
     }
 }

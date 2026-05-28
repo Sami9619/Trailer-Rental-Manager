@@ -96,7 +96,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharp\Services\AvailabilityService.cs" />
     <Compile Include="CSharp\Services\CustomerCsvImportService.cs" />
     <Compile Include="CSharp\Services\CsvService.cs" />
     <Compile Include="CSharp\Services\CustomerValidator.cs" />
