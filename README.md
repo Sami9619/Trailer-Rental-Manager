@@ -8,14 +8,17 @@ The user interface is German because the original use case was for German-speaki
 
 ## Screenshots
 
-**Home — availability overview by date range**
-![Home](docs/screenshot_home.png)
+| Home | Rental orders |
+| --- | --- |
+| <img src="docs/screenshot_home.png" alt="Home availability overview" width="420"> | <img src="docs/screenshot_auftraege.png" alt="Rental orders" width="420"> |
 
-**Rental orders**
-![Aufträge](docs/screenshot_auftraege.png)
+| Customers | Trailers |
+| --- | --- |
+| <img src="docs/screenshot_kunden.png" alt="Customer overview" width="420"> | <img src="docs/screenshot_anhaenger.png" alt="Trailer overview" width="420"> |
 
-**Revenue statistics**
-![Statistik](docs/screenshot_statistik.png)
+| Garages | Statistics |
+| --- | --- |
+| <img src="docs/screenshot_garage.png" alt="Garage overview" width="420"> | <img src="docs/screenshot_statistik.png" alt="Revenue statistics" width="420"> |
 
 ## Features
 
