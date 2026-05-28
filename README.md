@@ -6,6 +6,17 @@ Trailer Rental Manager keeps customer records, trailer master data and rental or
 
 The user interface is German because the original use case was for German-speaking users. The code structure, database schema, tests and documentation are kept in English.
 
+## Screenshots
+
+**Home — availability overview by date range**
+![Home](docs/screenshot_home.png)
+
+**Rental orders**
+![Aufträge](docs/screenshot_auftraege.png)
+
+**Revenue statistics**
+![Statistik](docs/screenshot_statistik.png)
+
 ## Features
 
 - Customer management
@@ -32,7 +43,7 @@ The user interface is German because the original use case was for German-speaki
 - `Trailer Rental Manager/CSharp/Repositories` contains SQLite data access.
 - `Trailer Rental Manager/CSharp/Services` contains testable business and utility logic.
 - `TrailerRentalManager.Tests` contains MSTest unit and integration tests.
-- `docs` contains supporting documentation such as the database schema.
+- `docs` contains supporting documentation such as the database schema and screenshots.
 
 ## Setup
 

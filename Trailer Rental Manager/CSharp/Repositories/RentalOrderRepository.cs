@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using Trailer_Rental_Manager.Operations;
+using Trailer_Rental_Manager.Services;
 
 namespace Trailer_Rental_Manager.Repositories
 {

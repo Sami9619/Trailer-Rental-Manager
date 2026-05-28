@@ -244,7 +244,7 @@ namespace Trailer_Rental_Manager.Forms.Garages
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GarageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Anhänger Management System - Garage";
             this.Load += new System.EventHandler(this.GarageForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGarage)).EndInit();
