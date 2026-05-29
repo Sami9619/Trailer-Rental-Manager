@@ -20,6 +20,14 @@ The user interface is German because the original use case was for German-speaki
 | --- | --- |
 | <img src="docs/screenshot_garage.png" alt="Garage overview" width="420"> | <img src="docs/screenshot_statistik.png" alt="Revenue statistics" width="420"> |
 
+## Download & Install
+
+1. Go to the [Releases](../../releases/latest) page.
+2. Download `TrailerRentalManager-Setup-v*.exe`.
+3. Run the installer — no additional software required.
+
+> **Requirements:** Windows 10 (version 1903 or later) or Windows 11. .NET Framework 4.8 is included in these versions of Windows and does not need to be installed separately.
+
 ## Features
 
 - Customer management
