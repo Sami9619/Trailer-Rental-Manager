@@ -1,6 +1,6 @@
 #define AppName      "Trailer Rental Manager"
 #define AppVersion   "1.0.0"
-#define AppPublisher "Sami9619"
+#define AppPublisher "Sami Hazzouri"
 #define AppExeName   "Trailer Rental Manager.exe"
 #define SourceDir    "..\Trailer Rental Manager\bin\Release"
 
