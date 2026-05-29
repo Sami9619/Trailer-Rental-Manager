@@ -205,10 +205,16 @@ namespace Trailer_Rental_Manager.Operations
                 return false;
             }
 
-            double rent;
-            if (!double.TryParse(monthlyRentTextBox.Text.Trim(), out rent))
+            decimal rent;
+            if (!decimal.TryParse(monthlyRentTextBox.Text.Trim(), out rent))
             {
                 MessageBox.Show("Miete darf nur eine Zahl sein!");
+                return false;
+            }
+
+            if (rent < 0)
+            {
+                MessageBox.Show("Miete darf nicht negativ sein!");
                 return false;
             }
 

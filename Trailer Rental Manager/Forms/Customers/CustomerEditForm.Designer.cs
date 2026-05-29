@@ -269,7 +269,7 @@ namespace Trailer_Rental_Manager.Forms.Customers
             this.KundenBearbeitungsUebersicht_SaveButton.TabIndex = 32;
             this.KundenBearbeitungsUebersicht_SaveButton.Text = "Speichern";
             this.KundenBearbeitungsUebersicht_SaveButton.UseVisualStyleBackColor = false;
-            this.KundenBearbeitungsUebersicht_SaveButton.Click += new System.EventHandler(this.KundenBearbeitungsUebersicht_SaveButton_Click);
+            this.KundenBearbeitungsUebersicht_SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // KundenBearbeitungsUebersicht_DeleteButton
             // 
@@ -282,7 +282,7 @@ namespace Trailer_Rental_Manager.Forms.Customers
             this.KundenBearbeitungsUebersicht_DeleteButton.TabIndex = 33;
             this.KundenBearbeitungsUebersicht_DeleteButton.Text = "Löschen";
             this.KundenBearbeitungsUebersicht_DeleteButton.UseVisualStyleBackColor = false;
-            this.KundenBearbeitungsUebersicht_DeleteButton.Click += new System.EventHandler(this.KundenBearbeitungsUebersicht_DeleteButton_Click);
+            this.KundenBearbeitungsUebersicht_DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // CustomerEditForm_Fuererscheinausstellungsdatum_Date
             // 

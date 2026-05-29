@@ -12,7 +12,6 @@ namespace Trailer_Rental_Manager.Forms.Customers
         public CustomerCreateForm()
         {
             InitializeComponent();
-            dateValueChanged = false;
         }
 
         private void AddButton_Click(object sender, EventArgs e)

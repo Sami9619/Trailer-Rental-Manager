@@ -47,6 +47,11 @@ namespace Trailer_Rental_Manager.Services
 
         internal static int Import(DataTable dataTable)
         {
+            if (dataTable == null)
+            {
+                throw new ArgumentNullException(nameof(dataTable));
+            }
+
             CsvService.ValidateHeader(dataTable, ExpectedHeader, "Kunden");
 
             List<CustomerImportRecord> records = ValidateRows(dataTable);

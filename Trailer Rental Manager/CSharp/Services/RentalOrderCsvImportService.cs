@@ -64,8 +64,6 @@ namespace Trailer_Rental_Manager.Services
 
         internal static List<RentalOrderImportRecord> Validate(DataTable dataTable)
         {
-            CsvService.ValidateHeader(dataTable, ExpectedHeader, "Aufträge");
-
             List<RentalOrderImportRecord> records = new List<RentalOrderImportRecord>();
 
             for (int rowIndex = 0; rowIndex < dataTable.Rows.Count; rowIndex++)

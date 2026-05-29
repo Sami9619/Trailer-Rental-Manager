@@ -9,13 +9,12 @@ namespace Trailer_Rental_Manager.Forms.Customers
     public partial class CustomerEditForm : Form
     {
         private readonly int customerId;
-        private bool noDateSelected;
+        private bool drivingLicenseDateCleared;
 
         public CustomerEditForm(int customerId)
         {
             InitializeComponent();
             this.customerId = customerId;
-            noDateSelected = false;
         }
 
         private void CustomerEditForm_Load(object sender, EventArgs e)
@@ -42,6 +41,7 @@ namespace Trailer_Rental_Manager.Forms.Customers
                 }
                 else
                 {
+                    drivingLicenseDateCleared = true;
                     ClearDrivingLicenseIssueDate();
                 }
 
@@ -49,13 +49,13 @@ namespace Trailer_Rental_Manager.Forms.Customers
             }
         }
 
-        private void KundenBearbeitungsUebersicht_SaveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
             if (FormsOperations.ValidateCustomerInput(CustomerEditForm_Geschlecht, CustomerEditForm_Vorname, CustomerEditForm_Nachname))
             {
                 string drivingLicenseIssueDate = null;
 
-                if (!noDateSelected)
+                if (!drivingLicenseDateCleared)
                 {
                     drivingLicenseIssueDate = DBOperations.ToDatabaseDate(CustomerEditForm_Fuererscheinausstellungsdatum_Date.Value);
                 }
@@ -78,7 +78,7 @@ namespace Trailer_Rental_Manager.Forms.Customers
             }
         }
 
-        private void KundenBearbeitungsUebersicht_DeleteButton_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             CustomerRepository.Delete(Convert.ToInt32(CustomerEditForm_KundenNummer.Text.Trim()));
             this.Close();
@@ -86,13 +86,13 @@ namespace Trailer_Rental_Manager.Forms.Customers
 
         private void buttonKeineAngabe_Click(object sender, EventArgs e)
         {
-            noDateSelected = true;
+            drivingLicenseDateCleared = true;
             ClearDrivingLicenseIssueDate();
         }
 
         private void CustomerEditForm_Fuererscheinausstellungsdatum_Date_MouseUp(object sender, MouseEventArgs e)
         {
-            noDateSelected = false;
+            drivingLicenseDateCleared = false;
             CustomerEditForm_Fuererscheinausstellungsdatum_Date.Format = DateTimePickerFormat.Custom;
             CustomerEditForm_Fuererscheinausstellungsdatum_Date.CustomFormat = "dd.MM.yyyy";
         }
