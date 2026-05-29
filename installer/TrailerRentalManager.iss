@@ -5,7 +5,7 @@
 #define SourceDir    "..\Trailer Rental Manager\bin\Release"
 
 [Setup]
-AppId={{8F3A2C1D-4B5E-4F6A-9C2D-1E8F7A3B5C9D}
+AppId={{B47859FE-9AE0-447D-8981-17F72BB6BFF9}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppPublisher={#AppPublisher}
